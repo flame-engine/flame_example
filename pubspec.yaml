@@ -1,5 +1,5 @@
 name: flame_example
-description: A new Flutter project.
+description: A set of small game examples showcasing all the features provided by the Flame Engine.
 publish_to: 'none'
 
 version: 0.1.0-rc1
