@@ -1,4 +1,6 @@
-![Test](https://github.com/flame-engine/flame_example/workflows/Test/badge.svg?branch=master&event=push) [![Discord](https://img.shields.io/discord/509714518008528896.svg)](https://discord.gg/pxrBmy4)
+[![Powered by Flame](https://img.shields.io/badge/Powered%20by-%F0%9F%94%A5-orange.svg)](https://flame-engine.org)
+![Test](https://github.com/flame-engine/flame_example/workflows/Test/badge.svg?branch=master&event=push)
+[![Discord](https://img.shields.io/discord/509714518008528896.svg)](https://discord.gg/pxrBmy4)
 
 # flame_example
 
@@ -8,7 +10,7 @@ This app is composed of a main menu in which you can select on of the examples a
 
 For a very simple but complete single game in Flame example, check [the example folder on Flame](https://github.com/flame-engine/flame/tree/master/example).
 
-This example was built using v1.0.0-rc1 of Flame, which means it is not yet ready for production. We are still working on v1 and this will be the official example when we launch, but for now it is a playground for us to test release candidates and make sure it all works as intended.
+This example was built using v1.0.0-rc5 of Flame, which means it is not yet ready for production. We are still working on v1 and this will be the official example when we launch, but for now it is a playground for us to test release candidates and make sure it all works as intended.
 
 ## Help
 
