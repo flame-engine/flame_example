@@ -1,8 +1,7 @@
 import 'package:flame/game.dart';
-import 'package:flame_example/examples/example1.dart';
 import 'package:flutter/material.dart';
 
-import 'examples/example2.dart';
+import 'example_def.dart';
 
 void main() {
   runApp(MainApp());
@@ -48,11 +47,11 @@ class MainMenuScreen extends StatelessWidget {
         title: Text('Main Menu'),
       ),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          GameButton(name: 'Example 1', chooseGame: chooseGame),
-          GameButton(name: 'Example 2', chooseGame: chooseGame),
-        ],
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: ExampleDef.all
+            .map((e) => GameButton(name: e.name, chooseGame: chooseGame))
+            .toList(),
       ),
     );
   }
@@ -90,17 +89,7 @@ class GameScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: GameWidget(game: createGame()),
+      body: GameWidget(game: ExampleDef.findOrCreateGame(gameName)),
     );
-  }
-
-  Game createGame() {
-    switch (gameName) {
-      case 'Example 1':
-        return Example1();
-      case 'Example 2':
-        return Example2();
-    }
-    throw 'Invalid example...';
   }
 }
