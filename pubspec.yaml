@@ -9,7 +9,6 @@ environment:
 
 dependencies:
   flame: 1.0.0-rc5
-  flame_audio: 0.1.0-rc3
   flutter:
     sdk: flutter
 
@@ -20,3 +19,8 @@ dev_dependencies:
 flutter:
   uses-material-design: false
 
+  assets:
+    - assets/images/animations/chopper.png
+    - assets/images/animations/chopper.json
+    - assets/images/animations/creature.png
+    - assets/images/android.png
