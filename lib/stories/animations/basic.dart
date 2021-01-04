@@ -7,7 +7,7 @@ import 'package:flame/gestures.dart';
 import 'package:flame/sprite_animation.dart';
 import 'package:flutter/gestures.dart' show TapDownDetails;
 
-class Animations extends BaseGame with TapDetector {
+class BasicAnimations extends BaseGame with TapDetector {
   Image chopper;
   Image creature;
   SpriteAnimation animation;
