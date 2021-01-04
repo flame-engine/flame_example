@@ -4,10 +4,6 @@ on:
   push:
     branches: [ master ]
 
-defaults:
-  run:
-    working-directory: example
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,4 +16,3 @@ jobs:
       - uses: erickzanardo/flutter-gh-pages@v2
         with:
           useCanvasKit: true
-          workingDir: example
