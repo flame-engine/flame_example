@@ -5,8 +5,7 @@ import './basic.dart';
 import './aseprite.dart';
 
 void addAnimationStories(Dashbook dashbook) {
-  dashbook
-      .storiesOf('Animations')
-      ..add('basic animations', (_) => GameWidget(game: BasicAnimations()))
-      ..add('aseprite', (_) => GameWidget(game: Aseprite()));
+  dashbook.storiesOf('Animations')
+    ..add('basic animations', (_) => GameWidget(game: BasicAnimations()))
+    ..add('aseprite', (_) => GameWidget(game: Aseprite()));
 }
