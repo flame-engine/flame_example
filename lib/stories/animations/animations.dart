@@ -1,7 +1,7 @@
 import 'package:dashbook/dashbook.dart';
 
-import './basic.dart';
-import './aseprite.dart';
+import 'basic.dart';
+import 'aseprite.dart';
 import '../../commons/dashbook_gamewidget.dart';
 import '../../commons/commons.dart';
 

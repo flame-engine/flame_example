@@ -8,7 +8,7 @@ class SquareComponent extends PositionComponent {
   Paint paint = BasicPalette.white.paint;
 
   SquareComponent() {
-    size = Vector2.all(10.0);
+    size = Vector2.all(100.0);
   }
 
   @override

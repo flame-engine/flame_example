@@ -1,7 +1,7 @@
 import 'package:dashbook/dashbook.dart';
 
-import './composability.dart';
-import './debug.dart';
+import 'composability.dart';
+import 'debug.dart';
 import '../../commons/dashbook_gamewidget.dart';
 import '../../commons/commons.dart';
 
