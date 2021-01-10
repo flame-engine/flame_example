@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:flame/game.dart';
 import 'package:flame/gestures.dart';
 
+import 'package:flame/extensions/offset.dart';
+
 final green = Paint()..color = const Color(0xAA338833);
 final red = Paint()..color = const Color(0xAA883333);
 final orange = Paint()..color = const Color(0xAABB6633);
@@ -33,8 +35,7 @@ class InfiniteEffectGame extends BaseGame with TapDetector {
 
   @override
   void onTapUp(TapUpDetails details) {
-    final dx = details.localPosition.dx;
-    final dy = details.localPosition.dy;
+    final p = details.localPosition.toVector2();
 
     greenSquare.clearEffects();
     redSquare.clearEffects();
@@ -42,7 +43,7 @@ class InfiniteEffectGame extends BaseGame with TapDetector {
 
     greenSquare.addEffect(
       MoveEffect(
-        path: [Vector2(dx, dy)],
+        path: [p],
         speed: 250.0,
         curve: Curves.bounceInOut,
         isInfinite: true,
@@ -52,7 +53,7 @@ class InfiniteEffectGame extends BaseGame with TapDetector {
 
     redSquare.addEffect(
       ScaleEffect(
-        size: Vector2(dx, dy),
+        size: p,
         speed: 250.0,
         curve: Curves.easeInCubic,
         isInfinite: true,
@@ -62,7 +63,7 @@ class InfiniteEffectGame extends BaseGame with TapDetector {
 
     orangeSquare.addEffect(
       RotateEffect(
-        angle: (dx + dy) % (2 * pi),
+        angle: (p.x + p.y) % (2 * pi),
         speed: 1.0, // Radians per second
         curve: Curves.easeInOut,
         isInfinite: true,
