@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flame/game.dart';
 import 'package:flame/gestures.dart';
 
-final green = Paint()..color = Color(0xAA338833);
-final red = Paint()..color = Color(0xAA883333);
-final orange = Paint()..color = Color(0xAABB6633);
+final green = Paint()..color = const Color(0xAA338833);
+final red = Paint()..color = const Color(0xAA883333);
+final orange = Paint()..color = const Color(0xAABB6633);
 
 SquareComponent makeSquare(Paint paint) {
   return SquareComponent()
