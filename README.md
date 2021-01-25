@@ -4,7 +4,7 @@
 
 # flame_example
 
-This is set of small examples showcasing specific features of the Flame Engine, so it's a great source of learning for how to do certain things.
+This is set of small examples showcasing specific features of the Flame Engine, so it's a great source of learning for how to do certain things. [See it live here](https://flame-engine.github.io/flame_example).
 
 This app is composed of a main menu in which you can select on of the examples and play with it. Each example is a totally standalone game and is within it's own file, so you can easily checkout the code and play with it.
 
