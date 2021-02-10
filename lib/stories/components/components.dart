@@ -8,12 +8,12 @@ import '../../commons/commons.dart';
 void addComponentsStories(Dashbook dashbook) {
   dashbook.storiesOf('Components')
     ..add(
-      'composability',
+      'Composability',
       (_) => DashbookGameWidget(game: Composability()),
       codeLink: baseLink('components/composability.dart'),
     )
     ..add(
-      'debug',
+      'Debug',
       (_) => DashbookGameWidget(game: Debug()),
       codeLink: baseLink('components/debug.dart'),
     );

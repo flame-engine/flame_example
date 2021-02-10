@@ -25,3 +25,5 @@ flutter:
     - assets/images/animations/chopper.json
     - assets/images/animations/creature.png
     - assets/images/android.png
+    - assets/images/tile_maps/selector.png
+    - assets/images/tile_maps/tiles.png
