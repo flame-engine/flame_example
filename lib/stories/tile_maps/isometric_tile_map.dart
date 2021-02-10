@@ -4,6 +4,7 @@ import 'package:flame/game.dart';
 import 'package:flame/components/isometric_tile_map_component.dart';
 import 'package:flame/gestures.dart';
 import 'package:flame/sprite.dart';
+import 'package:flame/extensions/offset.dart';
 import 'package:flame/spritesheet.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' hide Image;
@@ -81,8 +82,7 @@ class IsometricTileMapGame extends BaseGame with MouseMovementDetector {
     if (base == null || selector == null) {
       return; // loading
     }
-    final offset = event.position;
-    final screenPosition = Vector2(offset.dx, offset.dy);
+    final screenPosition = event.localPosition.toVector2();
     final block = base.getBlock(screenPosition);
     selector.show = base.containsBlock(block);
     selector.position = base.getBlockPosition(block) + topLeft;
