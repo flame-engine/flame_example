@@ -15,6 +15,7 @@ const x = 500.0;
 const y = 500.0;
 const s = 64.0;
 final topLeft = Vector2(x, y);
+final originColor = Paint()..color = const Color(0xFFFF00FF);
 
 class Selector extends SpriteComponent {
   bool show = false;
@@ -70,11 +71,7 @@ class IsometricTileMapGame extends BaseGame with MouseMovementDetector {
   @override
   void render(Canvas canvas) {
     super.render(canvas);
-
-    canvas.drawRect(
-      const Rect.fromLTWH(x - 1, y - 1, 3, 3),
-      Paint()..color = const Color(0xFFFF00FF),
-    );
+    canvas.drawRect(const Rect.fromLTWH(x - 1, y - 1, 3, 3), originColor);
   }
 
   @override
