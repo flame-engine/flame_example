@@ -1,5 +1,4 @@
 import 'package:flame/game.dart';
-import 'package:flame/game/game_widget.dart';
 import 'package:flutter/widgets.dart';
 
 class DashbookGameWidget extends StatelessWidget {

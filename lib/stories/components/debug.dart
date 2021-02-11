@@ -1,9 +1,7 @@
-import 'package:flame/game.dart';
-import 'package:flame/extensions/vector2.dart';
-import 'package:flame/components/sprite_component.dart';
-import 'package:flame/text_config.dart';
-
 import 'dart:ui';
+
+import 'package:flame/components.dart';
+import 'package:flame/game.dart';
 
 class AndroidComponent extends SpriteComponent {
   static const int SPEED = 150;
@@ -48,7 +46,7 @@ class Debug extends BaseGame {
   final fpsTextConfig = TextConfig(color: const Color(0xFFFFFFFF));
 
   @override
-  bool debugMode() => true;
+  bool debugMode = true;
 
   @override
   Future<void> onLoad() async {
@@ -77,7 +75,7 @@ class Debug extends BaseGame {
   void render(Canvas canvas) {
     super.render(canvas);
 
-    if (debugMode()) {
+    if (debugMode) {
       fpsTextConfig.render(canvas, fps(120).toString(), Vector2(0, 50));
     }
   }

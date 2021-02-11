@@ -1,10 +1,10 @@
-import 'package:flame/effects/effects.dart';
-import 'package:flame/extensions/vector2.dart';
-import '../../commons/square_component.dart';
-import 'package:flutter/material.dart';
+import 'package:flame/effects.dart';
+import 'package:flame/extensions.dart';
 import 'package:flame/game.dart';
 import 'package:flame/gestures.dart';
-import 'package:flame/extensions/offset.dart';
+import 'package:flutter/material.dart';
+
+import '../../commons/square_component.dart';
 
 class MoveEffectGame extends BaseGame with TapDetector {
   SquareComponent square;
