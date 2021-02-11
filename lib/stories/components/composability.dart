@@ -1,8 +1,5 @@
-import 'package:flame/anchor.dart';
-import 'package:flame/components/mixins/has_game_ref.dart';
-import 'package:flame/components/position_component.dart';
+import 'package:flame/components.dart';
 import 'package:flame/game.dart';
-import 'package:flame/extensions/vector2.dart';
 
 class Square extends PositionComponent with HasGameRef<Composability> {
   Square(Vector2 position, Vector2 size, {double angle = 0}) {
@@ -38,7 +35,7 @@ class Composability extends BaseGame {
   ParentSquare _parent;
 
   @override
-  bool debugMode() => true;
+  bool debugMode = true;
 
   Composability() {
     _parent = ParentSquare(Vector2.all(200), Vector2.all(300));

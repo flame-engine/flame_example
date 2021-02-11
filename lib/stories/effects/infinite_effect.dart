@@ -1,13 +1,12 @@
 import 'dart:math';
 
-import 'package:flame/effects/effects.dart';
-import 'package:flame/extensions/vector2.dart';
-import '../../commons/square_component.dart';
-import 'package:flutter/material.dart';
+import 'package:flame/effects.dart';
+import 'package:flame/extensions.dart';
 import 'package:flame/game.dart';
 import 'package:flame/gestures.dart';
+import 'package:flutter/material.dart';
 
-import 'package:flame/extensions/offset.dart';
+import '../../commons/square_component.dart';
 
 final green = Paint()..color = const Color(0xAA338833);
 final red = Paint()..color = const Color(0xAA883333);
