@@ -8,12 +8,12 @@ import '../../commons/commons.dart';
 void addAnimationStories(Dashbook dashbook) {
   dashbook.storiesOf('Animations')
     ..add(
-      'basic animations',
+      'Basic Animations',
       (_) => DashbookGameWidget(game: BasicAnimations()),
       codeLink: baseLink('animations/basic.dart'),
     )
     ..add(
-      'aseprite',
+      'Aseprite',
       (_) => DashbookGameWidget(game: Aseprite()),
       codeLink: baseLink('animations/aseprite.dart'),
     );
