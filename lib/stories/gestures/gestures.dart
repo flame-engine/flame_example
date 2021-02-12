@@ -33,8 +33,8 @@ void addGesturesStories(Dashbook dashbook) {
       codeLink: baseLink('gestures/multitap_advanced.dart'),
     )
     ..add(
-      'Tappables',
-      (_) => DashbookGameWidget(game: TappablesGame()),
+      'Tapables',
+      (_) => DashbookGameWidget(game: TapablesGame()),
       codeLink: baseLink('gestures/tappables.dart'),
     )
     ..add(

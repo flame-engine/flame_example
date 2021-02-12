@@ -40,7 +40,7 @@ class TapableSquare extends PositionComponent with Tapable {
   }
 }
 
-class TappablesGame extends BaseGame with HasTapableComponents {
+class TapablesGame extends BaseGame with HasTapableComponents {
   @override
   Future<void> onLoad() async {
     add(TapableSquare()..anchor = Anchor.center);
