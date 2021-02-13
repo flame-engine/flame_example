@@ -8,7 +8,8 @@ environment:
   sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
-  flame: 1.0.0-rc6
+  flame:
+    path: ../../flame
   dashbook: 0.0.11
   flutter:
     sdk: flutter
