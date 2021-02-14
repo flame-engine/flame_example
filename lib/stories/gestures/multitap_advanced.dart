@@ -14,8 +14,8 @@ class MultitapAdvancedGame extends BaseGame
 
   final Map<int, Rect> _taps = {};
 
-  Offset _start;
-  Offset _end;
+  Vector2 _start;
+  Vector2 _end;
   Rect _panRect;
 
   @override
@@ -50,22 +50,22 @@ class MultitapAdvancedGame extends BaseGame
     _panRect = null;
   }
 
-  void onPanStart(Offset position) {
+  void onPanStart(Vector2 position) {
     _end = null;
     _start = position;
   }
 
   void onPanUpdate(DragUpdateDetails details) {
-    _end = details.localPosition;
+    _end = details.localPosition.toVector2();
   }
 
   void onPanEnd(DragEndDetails details) {
     if (_start != null && _end != null) {
       _panRect = Rect.fromLTRB(
-        _start.dx,
-        _start.dy,
-        _end.dx,
-        _end.dy,
+        _start.x,
+        _start.y,
+        _end.x,
+        _end.y,
       );
     }
   }

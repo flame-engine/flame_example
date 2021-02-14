@@ -5,8 +5,8 @@ import 'package:flame/gestures.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' show Colors;
 
-// TODO(luan) doesn't work because it considers absolute units, need to rethink also I think the api can be improved
-class DraggableSquare extends PositionComponent with Draggable {
+class DraggableSquare extends PositionComponent
+    with Draggable, HasGameRef<DraggablesGame> {
   @override
   bool debugMode = true;
   bool _isDragging = false;
@@ -25,12 +25,15 @@ class DraggableSquare extends PositionComponent with Draggable {
 
   @override
   bool onReceiveDrag(DragEvent event) {
+    final a = event.initialPosition;
     event.onUpdate = (DragUpdateDetails details) {
+      final b = gameRef
+          .convertGlobalToLocalCoordinate(details.globalPosition.toVector2());
       if (!_isDragging) {
         _isDragging = true;
-        dragDeltaPosition = event.initialPosition.toVector2() - position;
+        dragDeltaPosition = a - position;
       }
-      position = details.localPosition.toVector2() - dragDeltaPosition;
+      position = b - dragDeltaPosition;
     };
     event.onEnd = (DragEndDetails details) {
       _isDragging = false;
@@ -42,7 +45,7 @@ class DraggableSquare extends PositionComponent with Draggable {
 class DraggablesGame extends BaseGame with HasDraggableComponents {
   @override
   Future<void> onLoad() async {
-    add(DraggableSquare()..anchor = Anchor.topLeft);
+    add(DraggableSquare());
     add(DraggableSquare()..y = 350);
   }
 }
