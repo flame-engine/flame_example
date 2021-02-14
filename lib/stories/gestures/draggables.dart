@@ -4,53 +4,51 @@ import 'package:flame/game.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart' show Colors;
 
+// Note: this component does not consider the possibility of multiple
+// simultaneous drags with different pointerIds.
 class DraggableSquare extends PositionComponent
     with Draggable, HasGameRef<DraggablesGame> {
   @override
   bool debugMode = true;
-  bool _isDragging = false;
-
-  Vector2 dragStartPosition;
-  Vector2 dragDeltaPosition;
 
   DraggableSquare({Vector2 position}) {
     size = Vector2.all(100);
     this.position = position ?? Vector2.all(100);
   }
 
+  Vector2 dragDeltaPosition;
+  bool get isDragging => dragDeltaPosition != null;
+
   @override
   void update(double dt) {
     super.update(dt);
-    debugColor = _isDragging ? Colors.greenAccent : Colors.purple;
+    debugColor = isDragging ? Colors.greenAccent : Colors.purple;
   }
 
   @override
   bool onDragStarted(int pointerId, Vector2 startPosition) {
-    dragStartPosition = startPosition;
+    dragDeltaPosition = startPosition - position;
     return false;
   }
 
   @override
   bool onDragUpdated(int pointerId, DragUpdateDetails details) {
-    final b = gameRef
-        .convertGlobalToLocalCoordinate(details.globalPosition.toVector2());
-    if (!_isDragging) {
-      _isDragging = true;
-      dragDeltaPosition = dragStartPosition - position;
-    }
-    position = b - dragDeltaPosition;
+    final localCoords = gameRef.convertGlobalToLocalCoordinate(
+      details.globalPosition.toVector2(),
+    );
+    position = localCoords - dragDeltaPosition;
     return false;
   }
 
   @override
   bool onDragEnded(int pointerId, DragEndDetails details) {
-    _isDragging = false;
+    dragDeltaPosition = null;
     return false;
   }
 
   @override
   bool onDragCanceled(int pointerId) {
-    _isDragging = false;
+    dragDeltaPosition = null;
     return false;
   }
 }
