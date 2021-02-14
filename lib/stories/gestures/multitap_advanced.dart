@@ -35,31 +35,25 @@ class MultitapAdvancedGame extends BaseGame
   }
 
   @override
-  void onReceiveDrag(DragEvent event) {
-    onPanStart(event.initialPosition);
-
-    event
-      ..onUpdate = onPanUpdate
-      ..onEnd = onPanEnd
-      ..onCancel = onPanCancel;
-  }
-
-  void onPanCancel() {
+  void onDragCanceled(int pointerId) {
     _end = null;
     _start = null;
     _panRect = null;
   }
 
-  void onPanStart(Vector2 position) {
+  @override
+  void onDragStarted(int pointerId, Vector2 position) {
     _end = null;
     _start = position;
   }
 
-  void onPanUpdate(DragUpdateDetails details) {
+  @override
+  void onDragUpdated(int pointerId, DragUpdateDetails details) {
     _end = details.localPosition.toVector2();
   }
 
-  void onPanEnd(DragEndDetails details) {
+  @override
+  void onDragEnded(int pointerId, DragEndDetails details) {
     if (_start != null && _end != null) {
       _panRect = Rect.fromLTRB(
         _start.x,
