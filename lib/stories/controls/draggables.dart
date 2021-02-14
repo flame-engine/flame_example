@@ -26,13 +26,13 @@ class DraggableSquare extends PositionComponent
   }
 
   @override
-  bool onDragStarted(int pointerId, Vector2 startPosition) {
+  bool onDragStart(int pointerId, Vector2 startPosition) {
     dragDeltaPosition = startPosition - position;
     return false;
   }
 
   @override
-  bool onDragUpdated(int pointerId, DragUpdateDetails details) {
+  bool onDragUpdate(int pointerId, DragUpdateDetails details) {
     final localCoords = gameRef.convertGlobalToLocalCoordinate(
       details.globalPosition.toVector2(),
     );
@@ -41,13 +41,13 @@ class DraggableSquare extends PositionComponent
   }
 
   @override
-  bool onDragEnded(int pointerId, DragEndDetails details) {
+  bool onDragEnd(int pointerId, DragEndDetails details) {
     dragDeltaPosition = null;
     return false;
   }
 
   @override
-  bool onDragCanceled(int pointerId) {
+  bool onDragCancel(int pointerId) {
     dragDeltaPosition = null;
     return false;
   }
