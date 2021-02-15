@@ -1,10 +1,10 @@
 import 'package:dashbook/dashbook.dart';
-import 'package:flame_example/stories/controls/joystick.dart';
-import 'package:flame_example/stories/controls/keyboard.dart';
 
 import '../../commons/commons.dart';
 import '../../commons/dashbook_gamewidget.dart';
 import 'draggables.dart';
+import 'joystick.dart';
+import 'keyboard.dart';
 import 'mouse_movement.dart';
 import 'multitap.dart';
 import 'multitap_advanced.dart';
