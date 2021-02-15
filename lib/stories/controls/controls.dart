@@ -1,5 +1,6 @@
 import 'package:dashbook/dashbook.dart';
 import 'package:flame_example/stories/controls/joystick.dart';
+import 'package:flame_example/stories/controls/keyboard.dart';
 
 import '../../commons/commons.dart';
 import '../../commons/dashbook_gamewidget.dart';
@@ -13,6 +14,11 @@ import 'tapables.dart';
 
 void addControlsStories(Dashbook dashbook) {
   dashbook.storiesOf('Controls')
+    ..add(
+      'Keyboard',
+      (_) => DashbookGameWidget(game: KeyboardGame()),
+      codeLink: baseLink('gestures/keyboard.dart'),
+    )
     ..add(
       'Mouse Movement',
       (_) => DashbookGameWidget(game: MouseMovementGame()),
