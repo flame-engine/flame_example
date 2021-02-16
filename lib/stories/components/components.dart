@@ -14,7 +14,7 @@ void addComponentsStories(Dashbook dashbook) {
     )
     ..add(
       'Debug',
-      (_) => DashbookGameWidget(game: Debug()),
+      (_) => DashbookGameWidget(game: DebugGame()),
       codeLink: baseLink('components/debug.dart'),
     );
 }

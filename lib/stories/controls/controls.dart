@@ -1,17 +1,24 @@
 import 'package:dashbook/dashbook.dart';
-import 'package:flame_example/stories/gestures/mouse_movement.dart';
-import 'package:flame_example/stories/gestures/multitap.dart';
-import 'package:flame_example/stories/gestures/multitap_advanced.dart';
-import 'package:flame_example/stories/gestures/overlapping_tapables.dart';
-import 'package:flame_example/stories/gestures/scroll.dart';
 
 import '../../commons/commons.dart';
 import '../../commons/dashbook_gamewidget.dart';
 import 'draggables.dart';
+import 'joystick.dart';
+import 'keyboard.dart';
+import 'mouse_movement.dart';
+import 'multitap.dart';
+import 'multitap_advanced.dart';
+import 'overlapping_tapables.dart';
+import 'scroll.dart';
 import 'tapables.dart';
 
-void addGesturesStories(Dashbook dashbook) {
-  dashbook.storiesOf('Gestures')
+void addControlsStories(Dashbook dashbook) {
+  dashbook.storiesOf('Controls')
+    ..add(
+      'Keyboard',
+      (_) => DashbookGameWidget(game: KeyboardGame()),
+      codeLink: baseLink('gestures/keyboard.dart'),
+    )
     ..add(
       'Mouse Movement',
       (_) => DashbookGameWidget(game: MouseMovementGame()),
@@ -46,5 +53,10 @@ void addGesturesStories(Dashbook dashbook) {
       'Draggables',
       (_) => DashbookGameWidget(game: DraggablesGame()),
       codeLink: baseLink('gestures/draggables.dart'),
+    )
+    ..add(
+      'Joystick',
+      (_) => DashbookGameWidget(game: JoystickGame()),
+      codeLink: baseLink('gestures/joystick.dart'),
     );
 }

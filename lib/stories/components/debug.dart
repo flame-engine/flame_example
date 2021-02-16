@@ -3,72 +3,63 @@ import 'dart:ui';
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 
-class AndroidComponent extends SpriteComponent {
+class LogoCompomnent extends SpriteComponent with HasGameRef<DebugGame> {
   static const int SPEED = 150;
-  Vector2 _gameSize;
+
   int xDirection = 1;
   int yDirection = 1;
 
-  AndroidComponent(Image image) : super.fromImage(Vector2.all(100), image);
+  LogoCompomnent(Sprite sprite) : super.fromSprite(sprite.srcSize, sprite);
 
   @override
   void update(double dt) {
     super.update(dt);
-    if (_gameSize == null) {
-      return;
-    }
 
     x += xDirection * SPEED * dt;
 
     final rect = toRect();
 
     if ((x <= 0 && xDirection == -1) ||
-        (rect.right >= _gameSize.x && xDirection == 1)) {
+        (rect.right >= gameRef.size.x && xDirection == 1)) {
       xDirection = xDirection * -1;
     }
 
     y += yDirection * SPEED * dt;
 
     if ((y <= 0 && yDirection == -1) ||
-        (rect.bottom >= _gameSize.y && yDirection == 1)) {
+        (rect.bottom >= gameRef.size.y && yDirection == 1)) {
       yDirection = yDirection * -1;
     }
   }
-
-  @override
-  void onGameResize(Vector2 gameSize) {
-    super.onGameResize(gameSize);
-    _gameSize = gameSize;
-  }
 }
 
-class Debug extends BaseGame {
-  final fpsTextConfig = TextConfig(color: const Color(0xFFFFFFFF));
+class DebugGame extends BaseGame {
+  static final fpsTextConfig = TextConfig(color: const Color(0xFFFFFFFF));
 
   @override
   bool debugMode = true;
 
   @override
   Future<void> onLoad() async {
-    final androidImage = await images.load('android.png');
+    final flameLogo = await loadSprite('flame.png');
 
-    final android = AndroidComponent(androidImage);
-    android.x = 100;
-    android.y = 400;
+    final flame1 = LogoCompomnent(flameLogo);
+    flame1.x = 100;
+    flame1.y = 400;
 
-    final android2 = AndroidComponent(androidImage);
-    android2.x = 100;
-    android2.y = 400;
-    android2.yDirection = -1;
+    final flame2 = LogoCompomnent(flameLogo);
+    flame2.x = 100;
+    flame2.y = 400;
+    flame2.yDirection = -1;
 
-    final android3 = AndroidComponent(androidImage);
-    android3.x = 100;
-    android3.y = 400;
-    android3.xDirection = -1;
+    final flame3 = LogoCompomnent(flameLogo);
+    flame3.x = 100;
+    flame3.y = 400;
+    flame3.xDirection = -1;
 
-    add(android);
-    add(android2);
-    add(android3);
+    add(flame1);
+    add(flame2);
+    add(flame3);
   }
 
   @override
