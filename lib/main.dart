@@ -14,7 +14,7 @@ import 'stories/tile_maps/tile_maps.dart';
 import 'stories/utils/utils.dart';
 
 void main() async {
-  final dashbook = Dashbook();
+  final dashbook = Dashbook(theme: ThemeData.dark());
 
   addAnimationStories(dashbook);
   addComponentsStories(dashbook);
