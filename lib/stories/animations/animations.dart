@@ -1,20 +1,20 @@
 import 'package:dashbook/dashbook.dart';
+import 'package:flame/game.dart';
 
 import 'basic.dart';
 import 'aseprite.dart';
-import '../../commons/dashbook_gamewidget.dart';
 import '../../commons/commons.dart';
 
 void addAnimationStories(Dashbook dashbook) {
   dashbook.storiesOf('Animations')
     ..add(
       'Basic Animations',
-      (_) => DashbookGameWidget(game: BasicAnimations()),
+      (_) => GameWidget(game: BasicAnimations()),
       codeLink: baseLink('animations/basic.dart'),
     )
     ..add(
       'Aseprite',
-      (_) => DashbookGameWidget(game: Aseprite()),
+      (_) => GameWidget(game: Aseprite()),
       codeLink: baseLink('animations/aseprite.dart'),
     );
 }

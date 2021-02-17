@@ -1,7 +1,7 @@
 import 'package:dashbook/dashbook.dart';
+import 'package:flame/game.dart';
 
 import '../../commons/commons.dart';
-import '../../commons/dashbook_gamewidget.dart';
 import 'draggables.dart';
 import 'joystick.dart';
 import 'keyboard.dart';
@@ -16,47 +16,47 @@ void addControlsStories(Dashbook dashbook) {
   dashbook.storiesOf('Controls')
     ..add(
       'Keyboard',
-      (_) => DashbookGameWidget(game: KeyboardGame()),
+      (_) => GameWidget(game: KeyboardGame()),
       codeLink: baseLink('gestures/keyboard.dart'),
     )
     ..add(
       'Mouse Movement',
-      (_) => DashbookGameWidget(game: MouseMovementGame()),
+      (_) => GameWidget(game: MouseMovementGame()),
       codeLink: baseLink('gestures/mouse_movement.dart'),
     )
     ..add(
       'Scroll',
-      (_) => DashbookGameWidget(game: ScrollGame()),
+      (_) => GameWidget(game: ScrollGame()),
       codeLink: baseLink('gestures/scroll.dart'),
     )
     ..add(
       'Multitap',
-      (_) => DashbookGameWidget(game: MultitapGame()),
+      (_) => GameWidget(game: MultitapGame()),
       codeLink: baseLink('gestures/multitap.dart'),
     )
     ..add(
       'Multitap Advanced',
-      (_) => DashbookGameWidget(game: MultitapAdvancedGame()),
+      (_) => GameWidget(game: MultitapAdvancedGame()),
       codeLink: baseLink('gestures/multitap_advanced.dart'),
     )
     ..add(
       'Tapables',
-      (_) => DashbookGameWidget(game: TapablesGame()),
+      (_) => GameWidget(game: TapablesGame()),
       codeLink: baseLink('gestures/tappables.dart'),
     )
     ..add(
       'Overlaping Tappables',
-      (_) => DashbookGameWidget(game: OverlappingTapablesGame()),
+      (_) => GameWidget(game: OverlappingTapablesGame()),
       codeLink: baseLink('gestures/overlaping_tappables.dart'),
     )
     ..add(
       'Draggables',
-      (_) => DashbookGameWidget(game: DraggablesGame()),
+      (_) => GameWidget(game: DraggablesGame()),
       codeLink: baseLink('gestures/draggables.dart'),
     )
     ..add(
       'Joystick',
-      (_) => DashbookGameWidget(game: JoystickGame()),
+      (_) => GameWidget(game: JoystickGame()),
       codeLink: baseLink('gestures/joystick.dart'),
     );
 }
