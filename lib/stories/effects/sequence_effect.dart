@@ -21,14 +21,13 @@ class SequenceEffectGame extends BaseGame with TapDetector {
 
   @override
   void onTapUp(TapUpDetails details) {
-    final Vector2 currentTap = details.localPosition.toVector2();
+    final currentTap = details.localPosition.toVector2();
     greenSquare.clearEffects();
 
     final move1 = MoveEffect(
       path: [currentTap],
       speed: 250.0,
       curve: Curves.bounceInOut,
-      isInfinite: false,
       isAlternating: true,
     );
 
@@ -40,36 +39,28 @@ class SequenceEffectGame extends BaseGame with TapDetector {
       ],
       speed: 150.0,
       curve: Curves.easeIn,
-      isInfinite: false,
-      isAlternating: false,
     );
 
     final scale = ScaleEffect(
       size: currentTap,
       speed: 100.0,
       curve: Curves.easeInCubic,
-      isInfinite: false,
-      isAlternating: false,
     );
 
     final rotate = RotateEffect(
       angle: currentTap.angleTo(Vector2.all(100)),
       duration: 0.8,
       curve: Curves.decelerate,
-      isInfinite: false,
-      isAlternating: false,
     );
 
     final combination = CombinedEffect(
       effects: [move2, rotate],
-      isInfinite: false,
       isAlternating: true,
       onComplete: () => print('combination complete'),
     );
 
     final sequence = SequenceEffect(
       effects: [move1, scale, combination],
-      isInfinite: false,
       isAlternating: true,
     );
     sequence.onComplete = () => print('sequence complete');

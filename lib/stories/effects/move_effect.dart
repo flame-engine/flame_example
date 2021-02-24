@@ -29,8 +29,6 @@ class MoveEffectGame extends BaseGame with TapDetector {
         ],
         speed: 250.0,
         curve: Curves.bounceInOut,
-        isRelative: false,
-        isInfinite: false,
         isAlternating: true,
       ),
     );

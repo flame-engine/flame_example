@@ -19,7 +19,7 @@ Widget spriteButtonBuilder(DashbookContext ctx) {
       },
       label: const Text(
         'Sprite Button',
-        style: const TextStyle(color: const Color(0xFF5D275D)),
+        style: TextStyle(color: Color(0xFF5D275D)),
       ),
       sprite: _buttons.getSprite(0, 0),
       pressedSprite: _buttons.getSprite(1, 0),

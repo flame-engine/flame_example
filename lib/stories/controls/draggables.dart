@@ -11,10 +11,11 @@ class DraggableSquare extends PositionComponent
   @override
   bool debugMode = true;
 
-  DraggableSquare({Vector2 position}) {
-    size = Vector2.all(100);
-    this.position = position ?? Vector2.all(100);
-  }
+  DraggableSquare({Vector2 position})
+      : super(
+          position: position ?? Vector2.all(100),
+          size: Vector2.all(100),
+        );
 
   Vector2 dragDeltaPosition;
   bool get isDragging => dragDeltaPosition != null;

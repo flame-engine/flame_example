@@ -76,8 +76,8 @@ class ParticlesGame extends BaseGame {
     // as per defined grid parameters
     do {
       final particle = particles.removeLast();
-      final double col = particles.length % gridSize;
-      final double row = (particles.length ~/ gridSize).toDouble();
+      final col = particles.length % gridSize;
+      final row = (particles.length ~/ gridSize).toDouble();
       final cellCenter =
           (cellSize.clone()..multiply(Vector2(col, row))) + (cellSize * .5);
 
@@ -184,7 +184,7 @@ class ParticlesGame extends BaseGame {
     );
   }
 
-  /// Same example as above, but using awesome [Inverval]
+  /// Same example as above, but using awesome [Interval]
   /// curve, which "schedules" transition to happen between
   /// certain values of progress. In this example, circles will
   /// move from their initial to their final position
@@ -258,7 +258,6 @@ class ParticlesGame extends BaseGame {
     reusablePatricle ??= circle();
 
     return Particle.generate(
-      count: 10,
       generator: (i) => MovingParticle(
         curve: Interval(rnd.nextDouble() * .1, rnd.nextDouble() * .8 + .1),
         to: randomCellOffset() * .5,
@@ -295,11 +294,12 @@ class ParticlesGame extends BaseGame {
     return Particle.generate(
       count: count,
       generator: (i) => TranslatedParticle(
-          offset: Offset(
-            (i % perLine) * colWidth - halfCellSize.x + imageSize,
-            (i ~/ perLine) * rowHeight - halfCellSize.y + imageSize,
-          ),
-          child: reusableImageParticle),
+        offset: Offset(
+          (i % perLine) * colWidth - halfCellSize.x + imageSize,
+          (i ~/ perLine) * rowHeight - halfCellSize.y + imageSize,
+        ),
+        child: reusableImageParticle,
+      ),
     );
   }
 
@@ -316,7 +316,6 @@ class ParticlesGame extends BaseGame {
   /// some non-linearity to something like [MovingParticle]
   Particle acceleratedParticles() {
     return Particle.generate(
-      count: 10,
       generator: (i) => AcceleratedParticle(
         speed:
             Offset(rnd.nextDouble() * 600 - 300, -rnd.nextDouble() * 600) * .2,
@@ -331,12 +330,12 @@ class ParticlesGame extends BaseGame {
   /// Be aware that it's very easy to get *really* bad performance
   /// misusing composites.
   Particle paintParticle() {
-    final List<Color> colors = [
+    final colors = [
       const Color(0xffff0000),
       const Color(0xff00ff00),
       const Color(0xff0000ff),
     ];
-    final List<Offset> positions = [
+    final positions = [
       const Offset(-10, 10),
       const Offset(10, 10),
       const Offset(0, -14),
@@ -395,7 +394,7 @@ class ParticlesGame extends BaseGame {
   /// mixing predefined and fully custom behavior.
   Particle fireworkParticle() {
     // A pallete to paint over the "sky"
-    final List<Paint> paints = [
+    final paints = [
       Colors.amber,
       Colors.amberAccent,
       Colors.red,
@@ -405,14 +404,13 @@ class ParticlesGame extends BaseGame {
       // Adds a nice "lense" tint
       // to overall effect
       Colors.blue,
-    ].map<Paint>((color) => Paint()..color = color).toList();
+    ].map((color) => Paint()..color = color).toList();
 
     return Particle.generate(
-      count: 10,
       generator: (i) {
         final initialSpeed = randomCellOffset();
         final deceleration = initialSpeed * -1;
-        const gravity = const Offset(0, 40);
+        const gravity = Offset(0, 40);
 
         return AcceleratedParticle(
           speed: initialSpeed,
@@ -454,20 +452,22 @@ class ParticlesGame extends BaseGame {
     final cellSizeOffset = cellSize.toOffset();
     final halfCellSizeOffset = halfCellSize.toOffset();
 
-    return ComposedParticle(children: <Particle>[
-      rect
-          .rotating(to: pi / 2)
-          .moving(to: -cellSizeOffset)
-          .scaled(2)
-          .accelerated(acceleration: halfCellSizeOffset * 5)
-          .translated(halfCellSizeOffset),
-      rect
-          .rotating(to: -pi)
-          .moving(to: cellSizeOffset.scale(1, -1))
-          .scaled(2)
-          .translated(halfCellSizeOffset.scale(-1, 1))
-          .accelerated(acceleration: halfCellSizeOffset.scale(-5, 5))
-    ]);
+    return ComposedParticle(
+      children: [
+        rect
+            .rotating(to: pi / 2)
+            .moving(to: -cellSizeOffset)
+            .scaled(2)
+            .accelerated(acceleration: halfCellSizeOffset * 5)
+            .translated(halfCellSizeOffset),
+        rect
+            .rotating(to: -pi)
+            .moving(to: cellSizeOffset.scale(1, -1))
+            .scaled(2)
+            .translated(halfCellSizeOffset.scale(-1, 1))
+            .accelerated(acceleration: halfCellSizeOffset.scale(-5, 5)),
+      ],
+    );
   }
 
   @override
@@ -479,7 +479,10 @@ class ParticlesGame extends BaseGame {
 
     if (debugMode) {
       fpsTextConfig.render(
-          canvas, '${fps(120).toStringAsFixed(2)}fps', Vector2(0, size.y - 24));
+        canvas,
+        '${fps(120).toStringAsFixed(2)}fps',
+        Vector2(0, size.y - 24),
+      );
     }
   }
 
@@ -514,11 +517,7 @@ class ParticlesGame extends BaseGame {
       columns: columns,
       rows: rows,
     );
-    final sprites = List<Sprite>.generate(
-      frames,
-      (i) => spritesheet.getSpriteById(i),
-    );
-
+    final sprites = List<Sprite>.generate(frames, spritesheet.getSpriteById);
     return SpriteAnimation.spriteList(sprites, stepTime: 0.1);
   }
 }

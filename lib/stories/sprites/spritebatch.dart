@@ -24,9 +24,9 @@ class SpritebatchGame extends BaseGame {
       color: Colors.redAccent,
     );
 
-    const NUM = 100;
+    const num = 100;
     final r = Random();
-    for (int i = 0; i < NUM; ++i) {
+    for (var i = 0; i < num; ++i) {
       final sx = r.nextInt(8) * 128.0;
       final sy = r.nextInt(8) * 128.0;
       final x = r.nextInt(size.x.toInt()).toDouble();

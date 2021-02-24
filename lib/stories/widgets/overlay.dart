@@ -5,11 +5,11 @@ import 'package:flame/palette.dart';
 import 'package:flutter/material.dart';
 
 Widget overlayBuilder(DashbookContext ctx) {
-  return OverlayExampleWidget();
+  return const OverlayExampleWidget();
 }
 
 class OverlayExampleWidget extends StatefulWidget {
-  OverlayExampleWidget({Key key}) : super(key: key);
+  const OverlayExampleWidget({Key key}) : super(key: key);
 
   @override
   _OverlayExampleWidgetState createState() => _OverlayExampleWidgetState();
@@ -25,7 +25,7 @@ class _OverlayExampleWidgetState extends State<OverlayExampleWidget> {
         height: 100,
         color: const Color(0xFFFF0000),
         child: const Center(
-          child: const Text('Paused'),
+          child: Text('Paused'),
         ),
       ),
     );
@@ -47,7 +47,7 @@ class _OverlayExampleWidgetState extends State<OverlayExampleWidget> {
               initialActiveOverlays: const ['PauseMenu'],
             ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => newGame(),
+        onPressed: newGame,
         child: const Icon(Icons.add),
       ),
     );

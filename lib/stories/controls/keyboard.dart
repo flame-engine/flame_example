@@ -3,18 +3,18 @@ import 'dart:ui';
 import 'package:flame/game.dart';
 import 'package:flame/keyboard.dart';
 import 'package:flame/palette.dart';
-import 'package:flutter/services.dart' show RawKeyDownEvent;
+import 'package:flutter/services.dart' show RawKeyDownEvent, RawKeyEvent;
 
 class KeyboardGame extends Game with KeyboardEvents {
   static final Paint _white = BasicPalette.white.paint;
-  static const int SPEED = 100;
+  static const int speed = 200;
 
   Rect _rect = const Rect.fromLTWH(0, 100, 100, 100);
   final Vector2 velocity = Vector2(0, 0);
 
   @override
   void update(double dt) {
-    final displacement = velocity * (SPEED * dt);
+    final displacement = velocity * (speed * dt);
     _rect = _rect.translate(displacement.x, displacement.y);
   }
 
@@ -24,8 +24,8 @@ class KeyboardGame extends Game with KeyboardEvents {
   }
 
   @override
-  void onKeyEvent(e) {
-    final bool isKeyDown = e is RawKeyDownEvent;
+  void onKeyEvent(RawKeyEvent e) {
+    final isKeyDown = e is RawKeyDownEvent;
     if (e.data.keyLabel == 'a') {
       velocity.x = isKeyDown ? -1 : 0;
     } else if (e.data.keyLabel == 'd') {

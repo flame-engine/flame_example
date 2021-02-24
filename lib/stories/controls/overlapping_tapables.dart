@@ -19,10 +19,12 @@ class TapableSquare extends PositionComponent with Tapable {
 
   Paint currentPaint;
 
-  TapableSquare({Vector2 position}) {
+  TapableSquare({Vector2 position})
+      : super(
+          position: position ?? Vector2.all(100),
+          size: Vector2.all(100),
+        ) {
     currentPaint = _randomPaint();
-    size = Vector2.all(100);
-    this.position = position ?? Vector2.all(100);
   }
 
   @override

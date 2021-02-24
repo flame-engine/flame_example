@@ -1,6 +1,7 @@
+import 'dart:ui';
+
 import 'package:flame/components.dart';
 import 'package:flame/game.dart';
-import 'dart:ui';
 
 class FlipSpriteGame extends BaseGame {
   @override
@@ -23,9 +24,9 @@ class FlipSpriteGame extends BaseGame {
   }
 
   SpriteAnimationComponent buildAnimationComponent(Image image) {
-    final ac = SpriteAnimationComponent.fromSpriteAnimation(
-      Vector2.all(100),
-      buildAnimation(image),
+    final ac = SpriteAnimationComponent(
+      animation: buildAnimation(image),
+      size: Vector2.all(100),
     );
     ac.x = size.x / 2 - ac.x / 2;
     return ac;
