@@ -17,6 +17,7 @@ result=$(flutter analyze .)
 if ! echo "$result" | grep -q "No issues found!"; then
   echo "$result"
   echo "flutter analyze issue: $1"
+  exit 1
 fi
 
 echo "success"
