@@ -5,8 +5,12 @@ import 'package:flame/game.dart';
 import 'package:flame/palette.dart';
 import 'package:flutter/material.dart';
 
-TextConfig regular = TextConfig(color: BasicPalette.white.color);
-TextConfig tiny = regular.withFontSize(12.0);
+final regular = TextConfig(color: BasicPalette.white.color);
+final tiny = regular.withFontSize(12.0);
+
+final _white = Paint()
+  ..color = BasicPalette.white.color
+  ..style = PaintingStyle.stroke;
 
 class MyTextBox extends TextBoxComponent {
   MyTextBox(String text)
@@ -31,12 +35,7 @@ class MyTextBox extends TextBoxComponent {
       width - margin.horizontal,
       height - margin.vertical,
     );
-    c.drawRect(
-      innerRect,
-      Paint()
-        ..color = BasicPalette.white.color
-        ..style = PaintingStyle.stroke,
-    );
+    c.drawRect(innerRect, _white);
   }
 }
 
