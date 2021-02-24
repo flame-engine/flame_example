@@ -16,29 +16,33 @@ class SpritesheetGame extends BaseGame {
         spriteSheet.createAnimation(row: 1, stepTime: 0.1, to: 7);
     final spriteSize = Vector2(80.0, 90.0);
 
-    final vampireComponent = SpriteAnimationComponent.fromSpriteAnimation(
-        spriteSize, vampireAnimation)
-      ..x = 150
-      ..y = 100;
+    final vampireComponent = SpriteAnimationComponent(
+      animation: vampireAnimation,
+      position: Vector2(150, 100),
+      size: spriteSize,
+    );
 
-    final ghostComponent =
-        SpriteAnimationComponent.fromSpriteAnimation(spriteSize, ghostAnimation)
-          ..x = 150
-          ..y = 220;
+    final ghostComponent = SpriteAnimationComponent(
+      animation: ghostAnimation,
+      position: Vector2(150, 220),
+      size: spriteSize,
+    );
 
     add(vampireComponent);
     add(ghostComponent);
 
     // Some plain sprites
-    final vampireSpriteComponent =
-        SpriteComponent.fromSprite(spriteSize, spriteSheet.getSprite(0, 0))
-          ..x = 50
-          ..y = 100;
+    final vampireSpriteComponent = SpriteComponent(
+      sprite: spriteSheet.getSprite(0, 0),
+      position: Vector2(50, 100),
+      size: spriteSize,
+    );
 
-    final ghostSpriteComponent =
-        SpriteComponent.fromSprite(spriteSize, spriteSheet.getSprite(1, 0))
-          ..x = 50
-          ..y = 220;
+    final ghostSpriteComponent = SpriteComponent(
+      sprite: spriteSheet.getSprite(1, 0),
+      size: spriteSize,
+      position: Vector2(50, 220),
+    );
 
     add(vampireSpriteComponent);
     add(ghostSpriteComponent);

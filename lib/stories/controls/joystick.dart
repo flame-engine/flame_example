@@ -13,6 +13,7 @@ final _greenPaint = Paint()..color = const Color(0xFF00FF00);
 
 class Player extends Component implements JoystickListener {
   static const speed = 32.0;
+  static final Vector2 size = Vector2.all(50.0);
 
   double currentSpeed = 0;
   double radAngle = 0;
@@ -44,19 +45,15 @@ class Player extends Component implements JoystickListener {
   }
 
   @override
-  void onGameResize(Vector2 size) {
-    _rect = Rect.fromLTWH(
-      (size.x / 2) - 25,
-      (size.y / 2) - 25,
-      50,
-      50,
-    );
-    super.onGameResize(size);
+  void onGameResize(Vector2 gameSize) {
+    final offset = (gameSize - size) / 2;
+    _rect = offset & size;
+    super.onGameResize(gameSize);
   }
 
   @override
   void joystickAction(JoystickActionEvent event) {
-    if (event.event == ActionEvent.DOWN) {
+    if (event.event == ActionEvent.down) {
       if (event.id == 1) {
         _paint = _paint == _whitePaint ? _bluePaint : _whitePaint;
       }
@@ -68,7 +65,7 @@ class Player extends Component implements JoystickListener {
 
   @override
   void joystickChangeDirectional(JoystickDirectionalEvent event) {
-    _move = event.directional != JoystickMoveDirectional.IDLE;
+    _move = event.directional != JoystickMoveDirectional.idle;
     if (_move) {
       radAngle = event.radAngle;
       currentSpeed = speed * event.intensity;
@@ -95,13 +92,11 @@ class JoystickGame extends BaseGame with HasDraggableComponents {
       actions: [
         JoystickAction(
           actionId: 1,
-          size: 50,
           margin: const EdgeInsets.all(50),
           color: const Color(0xFF0000FF),
         ),
         JoystickAction(
           actionId: 2,
-          size: 50,
           color: const Color(0xFF00FF00),
           margin: const EdgeInsets.only(
             right: 50,
@@ -110,7 +105,6 @@ class JoystickGame extends BaseGame with HasDraggableComponents {
         ),
         JoystickAction(
           actionId: 3,
-          size: 50,
           margin: const EdgeInsets.only(bottom: 50, right: 120),
           enableDirection: true,
         ),

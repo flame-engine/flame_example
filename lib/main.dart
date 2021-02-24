@@ -1,6 +1,5 @@
 import 'package:dashbook/dashbook.dart';
 import 'package:flame/flame.dart';
-import 'package:flame_example/stories/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 
 import 'stories/animations/animations.dart';
@@ -12,6 +11,7 @@ import 'stories/rendering/rendering.dart';
 import 'stories/sprites/sprites.dart';
 import 'stories/tile_maps/tile_maps.dart';
 import 'stories/utils/utils.dart';
+import 'stories/widgets/widgets.dart';
 
 void main() async {
   final dashbook = Dashbook(

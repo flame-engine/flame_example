@@ -3,8 +3,9 @@ import 'package:flame/extensions.dart';
 import 'package:flame/flame.dart';
 import 'package:flame/sprite.dart';
 import 'package:flame/widgets.dart';
-import 'package:flame_example/commons/commons.dart';
 import 'package:flutter/widgets.dart';
+
+final anchorOptions = Anchor.values.map((e) => e.name).toList();
 
 Widget spriteAnimationWidgetBuilder(DashbookContext ctx) {
   final _animationSpriteSheet = SpriteSheet(
@@ -15,7 +16,6 @@ Widget spriteAnimationWidgetBuilder(DashbookContext ctx) {
     row: 0,
     stepTime: 0.2,
     to: 3,
-    loop: true,
   );
   return Container(
     width: ctx.numberProperty('container width', 400),
@@ -23,7 +23,7 @@ Widget spriteAnimationWidgetBuilder(DashbookContext ctx) {
     child: SpriteAnimationWidget(
       animation: _animation,
       playing: ctx.boolProperty('playing', true),
-      anchor: parseAnchor(
+      anchor: Anchor.valueOf(
         ctx.listProperty('anchor', 'Anchor.center', anchorOptions),
       ),
     ),

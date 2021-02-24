@@ -2,12 +2,12 @@ import 'package:dashbook/dashbook.dart';
 import 'package:flame/game.dart';
 
 import '../../commons/commons.dart';
-import 'rotate_effect.dart';
-import 'scale_effect.dart';
-import 'sequence_effect.dart';
 import 'combined_effect.dart';
 import 'infinite_effect.dart';
 import 'move_effect.dart';
+import 'rotate_effect.dart';
+import 'scale_effect.dart';
+import 'sequence_effect.dart';
 
 void addEffectsStories(Dashbook dashbook) {
   dashbook.storiesOf('Effects')

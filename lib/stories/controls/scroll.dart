@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flame/game.dart';
 import 'package:flame/gestures.dart';
@@ -6,7 +7,7 @@ import 'package:flame/extensions.dart';
 
 // TODO(luan) doesnt seem to be working, figure it out
 class ScrollGame extends BaseGame with ScrollDetector {
-  static const SPEED = 2000.0;
+  static const speed = 2000.0;
   final _size = Vector2.all(50);
   final _paint = BasicPalette.white.paint;
 
@@ -14,7 +15,7 @@ class ScrollGame extends BaseGame with ScrollDetector {
   Vector2 target;
 
   @override
-  void onScroll(event) {
+  void onScroll(PointerScrollEvent event) {
     print(event.scrollDelta);
     target = position - event.scrollDelta.toVector2() * 10;
   }
@@ -30,7 +31,7 @@ class ScrollGame extends BaseGame with ScrollDetector {
     super.update(dt);
     if (target != null) {
       final dir = (target - position).normalized();
-      position += dir * (SPEED * dt);
+      position += dir * (speed * dt);
     }
   }
 }

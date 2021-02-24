@@ -4,18 +4,18 @@ import 'package:flame/components.dart';
 import 'package:flame/game.dart';
 
 class LogoCompomnent extends SpriteComponent with HasGameRef<DebugGame> {
-  static const int SPEED = 150;
+  static const int speed = 150;
 
   int xDirection = 1;
   int yDirection = 1;
 
-  LogoCompomnent(Sprite sprite) : super.fromSprite(sprite.srcSize, sprite);
+  LogoCompomnent(Sprite sprite) : super(sprite: sprite, size: sprite.srcSize);
 
   @override
   void update(double dt) {
     super.update(dt);
 
-    x += xDirection * SPEED * dt;
+    x += xDirection * speed * dt;
 
     final rect = toRect();
 
@@ -24,7 +24,7 @@ class LogoCompomnent extends SpriteComponent with HasGameRef<DebugGame> {
       xDirection = xDirection * -1;
     }
 
-    y += yDirection * SPEED * dt;
+    y += yDirection * speed * dt;
 
     if ((y <= 0 && yDirection == -1) ||
         (rect.bottom >= gameRef.size.y && yDirection == 1)) {

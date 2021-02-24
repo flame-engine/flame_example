@@ -10,8 +10,6 @@ class MultitapAdvancedGame extends BaseGame
   static final _whitePaint = BasicPalette.white.paint;
   static final _size = Vector2.all(50);
 
-  Paint _paint = _whitePaint;
-
   final Map<int, Rect> _taps = {};
 
   Vector2 _start;
@@ -63,11 +61,11 @@ class MultitapAdvancedGame extends BaseGame
   void render(Canvas canvas) {
     super.render(canvas);
     _taps.values.forEach((rect) {
-      canvas.drawRect(rect, _paint);
+      canvas.drawRect(rect, _whitePaint);
     });
 
     if (_panRect != null) {
-      canvas.drawRect(_panRect, _paint);
+      canvas.drawRect(_panRect, _whitePaint);
     }
   }
 }

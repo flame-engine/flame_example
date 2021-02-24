@@ -12,10 +12,10 @@ Widget nineTileBoxBuilder(DashbookContext ctx) {
       tileSize: 8,
       destTileSize: 50,
       child: const Center(
-        child: const Text(
+        child: Text(
           'Cool label',
-          style: const TextStyle(
-            color: const Color(0xFFFFFFFF),
+          style: TextStyle(
+            color: Color(0xFFFFFFFF),
           ),
         ),
       ),

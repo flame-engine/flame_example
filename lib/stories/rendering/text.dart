@@ -22,43 +22,52 @@ class MyTextBox extends TextBoxComponent {
 
   @override
   void drawBackground(Canvas c) {
-    final Rect rect = Rect.fromLTWH(0, 0, width, height);
+    final rect = Rect.fromLTWH(0, 0, width, height);
     c.drawRect(rect, Paint()..color = const Color(0xFFFF00FF));
     final margin = boxConfig.margins;
-    final Rect innerRect = Rect.fromLTWH(
+    final innerRect = Rect.fromLTWH(
       margin.left,
       margin.top,
       width - margin.horizontal,
       height - margin.vertical,
     );
     c.drawRect(
-        innerRect,
-        Paint()
-          ..color = BasicPalette.white.color
-          ..style = PaintingStyle.stroke);
+      innerRect,
+      Paint()
+        ..color = BasicPalette.white.color
+        ..style = PaintingStyle.stroke,
+    );
   }
 }
 
 class TextGame extends BaseGame {
   @override
   Future<void> onLoad() async {
-    add(TextComponent('Hello, Flame', config: regular)
-      ..anchor = Anchor.topCenter
-      ..x = size.x / 2
-      ..y = 32.0);
+    add(
+      TextComponent('Hello, Flame', config: regular)
+        ..anchor = Anchor.topCenter
+        ..x = size.x / 2
+        ..y = 32.0,
+    );
 
-    add(TextComponent('center', config: tiny)
-      ..anchor = Anchor.center
-      ..position = size / 2);
+    add(
+      TextComponent('center', config: tiny)
+        ..anchor = Anchor.center
+        ..position = size / 2,
+    );
 
-    add(TextComponent('bottomRight', config: tiny)
-      ..anchor = Anchor.bottomRight
-      ..position = size);
+    add(
+      TextComponent('bottomRight', config: tiny)
+        ..anchor = Anchor.bottomRight
+        ..position = size,
+    );
 
-    add(MyTextBox(
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum.',
-    )
-      ..anchor = Anchor.bottomLeft
-      ..y = size.y);
+    add(
+      MyTextBox(
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget ligula eu lectus lobortis condimentum.',
+      )
+        ..anchor = Anchor.bottomLeft
+        ..y = size.y,
+    );
   }
 }

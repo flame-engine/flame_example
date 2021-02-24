@@ -6,8 +6,11 @@ class BasicSpriteGame extends BaseGame {
   Future<void> onLoad() async {
     final sprite = await loadSprite('flame.png');
     add(
-      SpriteComponent.fromSprite(sprite.srcSize * 2, sprite)
-        ..position = Vector2.all(100),
+      SpriteComponent(
+        sprite: sprite,
+        position: Vector2.all(100),
+        size: sprite.srcSize * 2,
+      ),
     );
   }
 }

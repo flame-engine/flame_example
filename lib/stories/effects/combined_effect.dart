@@ -38,15 +38,12 @@ class CombinedEffectGame extends BaseGame with TapDetector {
       ],
       duration: 4.0,
       curve: Curves.bounceInOut,
-      isInfinite: false,
-      isAlternating: false,
     );
 
     final scale = ScaleEffect(
       size: currentTap,
       speed: 200.0,
       curve: Curves.linear,
-      isInfinite: false,
       isAlternating: true,
     );
 
@@ -54,13 +51,10 @@ class CombinedEffectGame extends BaseGame with TapDetector {
       angle: currentTap.angleTo(Vector2.all(100)),
       duration: 3,
       curve: Curves.decelerate,
-      isInfinite: false,
-      isAlternating: false,
     );
 
     final combination = CombinedEffect(
       effects: [move, rotate, scale],
-      isInfinite: false,
       isAlternating: true,
       offset: 0.5,
       onComplete: () => print('onComplete callback'),

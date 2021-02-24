@@ -9,8 +9,6 @@ class MultitapGame extends BaseGame with MultiTouchTapDetector {
   static final _whitePaint = BasicPalette.white.paint;
   static final _size = Vector2.all(50);
 
-  Paint _paint = _whitePaint;
-
   final Map<int, Rect> _taps = {};
 
   @override
@@ -33,7 +31,7 @@ class MultitapGame extends BaseGame with MultiTouchTapDetector {
   void render(Canvas canvas) {
     super.render(canvas);
     _taps.values.forEach((rect) {
-      canvas.drawRect(rect, _paint);
+      canvas.drawRect(rect, _whitePaint);
     });
   }
 }

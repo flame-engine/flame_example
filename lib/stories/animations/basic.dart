@@ -21,20 +21,20 @@ class BasicAnimations extends BaseGame with TapDetector {
         amount: 4,
         textureSize: Vector2.all(48),
         stepTime: 0.15,
-        loop: true,
       ),
     );
 
     final spriteSize = Vector2.all(100.0);
-    final animationComponent2 =
-        SpriteAnimationComponent.fromSpriteAnimation(spriteSize, animation);
+    final animationComponent2 = SpriteAnimationComponent(
+      animation: animation,
+      size: spriteSize,
+    );
     animationComponent2.x = size.x / 2 - spriteSize.x;
     animationComponent2.y = spriteSize.y;
 
-    final reversedAnimationComponent =
-        SpriteAnimationComponent.fromSpriteAnimation(
-      spriteSize,
-      animation.reversed(),
+    final reversedAnimationComponent = SpriteAnimationComponent(
+      animation: animation.reversed(),
+      size: spriteSize,
     );
     reversedAnimationComponent.x = size.x / 2;
     reversedAnimationComponent.y = spriteSize.y;
@@ -47,7 +47,6 @@ class BasicAnimations extends BaseGame with TapDetector {
     final size = Vector2(291, 178);
 
     final animationComponent = SpriteAnimationComponent.fromFrameData(
-      size,
       creature,
       SpriteAnimationData.sequenced(
         amount: 18,
@@ -56,6 +55,7 @@ class BasicAnimations extends BaseGame with TapDetector {
         stepTime: 0.15,
         loop: false,
       ),
+      size: size,
       removeOnFinish: true,
     );
 
