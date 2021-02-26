@@ -2,6 +2,7 @@ import 'package:dashbook/dashbook.dart';
 import 'package:flame/game.dart';
 
 import '../../commons/commons.dart';
+import 'camera_and_viewport.dart';
 import 'nine_tile_box.dart';
 import 'particles.dart';
 import 'timer.dart';
@@ -28,5 +29,10 @@ void addUtilsStories(Dashbook dashbook) {
       'Particles',
       (_) => GameWidget(game: ParticlesGame()),
       codeLink: baseLink('utils/particles.dart'),
+    )
+    ..add(
+      'Camera & Viewport',
+      (_) => GameWidget(game: CameraAndViewportGame()),
+      codeLink: baseLink('utils/camera_and_viewport.dart'),
     );
 }

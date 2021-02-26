@@ -153,10 +153,10 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: "8bb8de574d002a6ebbc2dad867e86fdd9f095fa8"
+      resolved-ref: a0cd402d275a29552f323e04f5dc43c187a63a90
       url: "https://github.com/flame-engine/flame.git"
     source: git
-    version: "1.0.0-rc6"
+    version: "1.0.0-rc7"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -241,7 +241,7 @@ packages:
       name: ordered_set
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "2.0.2"
   package_config:
     dependency: transitive
     description:
@@ -372,7 +372,7 @@ packages:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.5+1"
+    version: "0.1.5+3"
   url_launcher_windows:
     dependency: transitive
     description:
