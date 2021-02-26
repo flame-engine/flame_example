@@ -9,9 +9,7 @@ environment:
 
 dependencies:
   flame:
-    git:
-      url: https://github.com/flame-engine/flame.git
-      ref: master
+    path: ../../flame
   dashbook: 0.0.12
   flutter:
     sdk: flutter
@@ -35,6 +33,7 @@ flutter:
     - assets/images/buttons.png
     - assets/images/nine-box.png
     - assets/images/shield.png
+    - assets/images/joystick.png
     - assets/images/bomb_ptero.png
     - assets/images/tile_maps/selector.png
     - assets/images/tile_maps/tiles.png

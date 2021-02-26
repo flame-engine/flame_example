@@ -2,6 +2,7 @@ import 'package:dashbook/dashbook.dart';
 import 'package:flame/game.dart';
 
 import '../../commons/commons.dart';
+import 'advanced_joystick.dart';
 import 'draggables.dart';
 import 'joystick.dart';
 import 'keyboard.dart';
@@ -58,5 +59,10 @@ void addControlsStories(Dashbook dashbook) {
       'Joystick',
       (_) => GameWidget(game: JoystickGame()),
       codeLink: baseLink('gestures/joystick.dart'),
+    )
+    ..add(
+      'Joystick Advanced',
+      (_) => GameWidget(game: AdvancedJoystickGame()),
+      codeLink: baseLink('gestures/advanced_joystick.dart'),
     );
 }
