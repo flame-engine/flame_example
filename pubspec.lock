@@ -151,9 +151,11 @@ packages:
   flame:
     dependency: "direct main"
     description:
-      path: "../../flame"
-      relative: true
-    source: path
+      path: "."
+      ref: master
+      resolved-ref: "3abf1fe184d756a12262dec8f4145e4e87dc3dd7"
+      url: "https://github.com/flame-engine/flame.git"
+    source: git
     version: "1.0.0-rc7"
   flutter:
     dependency: "direct main"
