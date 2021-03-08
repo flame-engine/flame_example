@@ -153,7 +153,7 @@ packages:
     description:
       path: "."
       ref: master
-      resolved-ref: a0cd402d275a29552f323e04f5dc43c187a63a90
+      resolved-ref: "3abf1fe184d756a12262dec8f4145e4e87dc3dd7"
       url: "https://github.com/flame-engine/flame.git"
     source: git
     version: "1.0.0-rc7"

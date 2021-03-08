@@ -28,6 +28,7 @@ flutter:
     - assets/images/animations/chopper.png
     - assets/images/animations/chopper.json
     - assets/images/animations/creature.png
+    - assets/images/joystick.png
     - assets/images/flame.png
     - assets/images/spritesheet.png
     - assets/images/boom.png
