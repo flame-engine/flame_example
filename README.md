@@ -1,3 +1,9 @@
+# Warning: This repo is archived.
+
+We moved the examples to our [Flame monorepo](https://github.com/flame-engine/flame). The exact contents are there in the `/examples` folder (but probably more up-to-date). Please ignore this repo.
+
+---
+
 [![Powered by Flame](https://img.shields.io/badge/Powered%20by-%F0%9F%94%A5-orange.svg)](https://flame-engine.org)
 ![Test](https://github.com/flame-engine/flame_example/workflows/Test/badge.svg?branch=master&event=push)
 [![Discord](https://img.shields.io/discord/509714518008528896.svg)](https://discord.gg/pxrBmy4)
